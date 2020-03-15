@@ -1,0 +1,10 @@
+Company,Productname,Type,ModelFrom,ModelTo,BrandsCovered,Amount,Tax
+Company A,Car Insurance,is,2010,2020,"Hyundai, Opel, Toyota, Nissan, Fiat",500,10
+Company B,Car Insurance,is,2005,2015,"BMW, Mercedes, Opel, Nissan",400,10
+Company C,Car Insurance,reg,2007,2020,"Honda, Peagut, Opel, Toyota",600,10
+Company D,Car Insurance,is,2000,2017,"BMW, Toyota, Nissan, Fiat, KIA, Honda",520,10
+Company E,Car Insurance,reg,1999,2020,"Mercedes, Opel, Toyota, Fiat, KIA",442,10
+Company F,Car Insurance,reg,2002,2018,"BMW, Mercedes, Nissan, Fiat, KIA",610,10
+Company G,Car Insurance,reg,2003,2017,"BMW, Mitsubishi Nissan, Fiat, KIA, Honda",520,10
+Company H,Car Insurance,is,2005,2020,"Mercedes, Opel, Toyota, Fiat, KIA",442,10
+Company I,Car Insurance,is,2004,2018,"Hyundai, Opel, Toyota, Nissan, Fiat",500,10

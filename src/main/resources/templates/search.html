@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/formate.css"></link>
+<title>Insert title here</title>
+</head>
+<body>
+ <h2 align="center">Motor Insurance Form</h2>
+ <table align="center"><tr><td><a href="javascript:loadCSV()">Load CSV File</a></td><td><span id="loadmsg"></span></td></table>    
+<div class="form-container">
+    
+      <form method="POST" action="/findproducts" onSubmit="return doValidForm()">
+		<div class="form-fields">
+		   
+		    <select id="marke" name="marke" size=1>
+		        <option value="0">Select car marke</option>
+		        <option value="BMW">BMW</option>
+		    	<option value="Fiat">Fiat</option>
+		    	<option value="Honda">Honda</option>
+		    	<option value="Hyundai">Hyundai</option>
+		    	<option value="KIA">KIA</option>
+		    	<option value="Mercedes">Mercedes</option>
+		    	<option value="Nissan">Nissan</option>
+		    	<option value="Opel">Opel</option>
+		    	<option value="Peagut">Peagut</option>
+		    	<option value="Toyota">Toyota</option>
+		    	
+		    </select>
+			<input type=text id=year name=year placeholder="Enter Construction year">
+		
+		</div>
+		<div class="form-submit">
+		   <span id="errmsg"></span>
+		   <input type=submit value="Submit">
+		  
+		</div>
+	</form>
+<hr>	
+</div>
+
+<script>
+
+function loadCSV()
+{
+	var errCon = $('#loadmsg');
+	 $.ajax({
+			method: 'GET',
+			url: 'load',
+			success: function(response){
+				var jsonResp = JSON.parse(response)
+				switch(jsonResp.respcode){
+					case 0:  errCon.html("CSV file lodaded successfully ......."); $('.form-container').css("display","block"); break;
+					case 0:  errCon.html("loading CSV file  fails !!!!!!"); break;
+				}
+			},
+			error: function(){errCon.html('Error !!!! ');}
+		 });
+	
+}
+
+function doValidForm(){
+    	 var year = $.trim($('#year').val())
+    	 var my_marke = $('#marke').val();
+    	 var errCon = $('#errmsg');
+    	 if(my_marke != '0'){
+    		 if(year.length > 0 && !isNaN(year)){
+    			 /*$('#x-btn').prop('href','marke='+marke+'&year='+year);
+    			 $('#x-btn').trigger('click');
+        		 $.ajax({
+        			method: 'POST',
+        			url: 'searchproducts',
+        			data:'marke='+marke+'&year='+year,
+        			success: function(response){},
+        			error: function(){errCon.html('Error !!!! ');}
+        		 });*/
+        		 //parent.location.href='results?year='+year+'&marke='+marke;
+        		 return true;
+        	 }else{errCon.html('Invalid year value'); return false;}
+    	 }else{errCon.html('Select car marke'); return false;}
+    }
+</script>
+</body>
+</html>

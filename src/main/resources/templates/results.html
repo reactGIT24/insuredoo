@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="results-container">
+ <h2>Motor Insurance Form</h2>
+ <h4  th:text="${message}"></h4>
+ 
+ <table border="1">
+ <tr>
+   <td style="width:150px">Company</td>
+   <td style="width:250px">Product</td>
+   <td style="width:150px">Type</td>
+   <td style="width:100px">Price</td>
+   <td style="width:100px">Tax</td>
+   <td style="width:100px">Total</td>
+ </tr>
+ <tr th:each="product : ${products}">
+   <td th:text="${product.company}"></td>
+   <td th:text="${product.productname}"></td>
+   <td th:text="${product.type}"></td>
+   <td th:text="${product.amount}"></td>
+   <td th:text="${product.tax} +' %'" ></td>
+   <td th:text="${product.total}"></td>
+   
+ </tr>
+
+ </table>
+ </div>
+</body>
+</html>
